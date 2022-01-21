@@ -29,7 +29,7 @@ jobs:
     - name: Build ssl
       run: |
         apt-get update && \
-        apt-get install -y git gcc make g++ cmake perl libunwind-dev golang && \
+        sudo apt-get install -y git gcc make g++ cmake perl libunwind-dev golang && \
         git clone https://boringssl.googlesource.com/boringssl && \
         mkdir boringssl/build && \
         cd boringssl/build && \
@@ -38,7 +38,7 @@ jobs:
         
     - name: Build nginx
       run: |
-        apt-get install -y mercurial libperl-dev libpcre3-dev zlib1g-dev libxslt1-dev libgd-ocaml-dev libgeoip-dev && \
+        sudo apt-get install -y mercurial libperl-dev libpcre3-dev zlib1g-dev libxslt1-dev libgd-ocaml-dev libgeoip-dev && \
         hg clone https://hg.nginx.org/nginx-quic   && \
         cd nginx-quic && \
         hg update quic && \
