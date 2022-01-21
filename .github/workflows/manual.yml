@@ -42,6 +42,10 @@ jobs:
         hg clone https://hg.nginx.org/nginx-quic   && \
         cd nginx-quic && \
         hg update quic && \
+        git clone https://github.com/leev/ngx_http_geoip2_module.git
+        git clone https://github.com/FRiCKLE/ngx_cache_purge.git
+        git clone https://github.com/google/ngx_brotli.git
+        cd ./ngx_brotli && git submodule update --init && cd ../
         auto/configure --with-pcre \
                        --with-pcre-jit \
                        --with-openssl-opt='enable-weak-ssl-ciphers' \
