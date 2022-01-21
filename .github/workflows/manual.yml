@@ -40,13 +40,13 @@ jobs:
       run: |
         sudo apt-get install -y mercurial libperl-dev libpcre3-dev zlib1g-dev libxslt1-dev libgd-ocaml-dev libgeoip-dev \
         libpcre3-dev libjemalloc-dev libmaxminddb-dev
-        hg clone https://hg.nginx.org/nginx-quic
-        cd nginx-quic && \
-        hg update quic && \
         git clone https://github.com/leev/ngx_http_geoip2_module.git
         git clone https://github.com/FRiCKLE/ngx_cache_purge.git
         git clone https://github.com/google/ngx_brotli.git
         cd ./ngx_brotli && git submodule update --init && cd ../
+        hg clone https://hg.nginx.org/nginx-quic
+        cd nginx-quic && \
+        hg update quic && \
         auto/configure --with-pcre \
                        --with-pcre-jit \
                        --with-openssl-opt='enable-weak-ssl-ciphers' \
@@ -56,9 +56,9 @@ jobs:
                        --with-http_ssl_module \
                        --with-http_sub_module \
                        --with-http_stub_status_module \
-                       --add-module=./ngx_cache_purge \
-                       --add-module=./ngx_http_geoip2_module \
-                       --add-module=./ngx_brotli \
+                       --add-module=../ngx_cache_purge \
+                       --add-module=../ngx_http_geoip2_module \
+                       --add-module=../ngx_brotli \
                        --with-cc-opt='-DTCP_FASTOPEN=23' \
                        --with-ld-opt='-lrt -ljemalloc' \
                        --build=nginx-quic --with-debug  \
