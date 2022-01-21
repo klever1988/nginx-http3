@@ -65,7 +65,7 @@ jobs:
                        --with-http_v3_module --with-stream_quic_module \
                        --with-cc-opt="-I../boringssl/include" --with-ld-opt="-L../boringssl/build/ssl -L../boringssl/build/crypto" && \
         make -j`nproc`
-        ./obj/nginx -V
+        ./objs/nginx -V
 
     - name: Package
       run: tar -jvcf nginx-quic.tar.bz2 nginx-quic
