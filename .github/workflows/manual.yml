@@ -45,8 +45,10 @@ jobs:
         git clone https://github.com/google/ngx_brotli.git
         cd ./ngx_brotli && git submodule update --init && cd ../
         hg clone https://hg.nginx.org/nginx-quic
+        wget https://github.com/kn007/patch/raw/master/Enable_BoringSSL_OCSP.patch
         cd nginx-quic && \
         hg update quic && \
+        git apply ../Enable_BoringSSL_OCSP.patch && \
         auto/configure --with-pcre \
                        --with-pcre-jit \
                        --with-openssl-opt='enable-weak-ssl-ciphers' \
