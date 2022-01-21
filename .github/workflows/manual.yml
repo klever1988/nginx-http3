@@ -49,10 +49,10 @@ jobs:
         git clone https://github.com/FRiCKLE/ngx_cache_purge.git
         git clone https://github.com/google/ngx_brotli.git
         cd ./ngx_brotli && git submodule update --init && cd ../
+        #--with-http_ssl_module \
+        #--with-openssl-opt='enable-weak-ssl-ciphers' \
         auto/configure --with-pcre \
                        --with-pcre-jit \
-                       #--with-http_ssl_module \
-                       #--with-openssl-opt='enable-weak-ssl-ciphers' \
                        --with-threads \
                        --with-file-aio \
                        --with-http_v2_module \
