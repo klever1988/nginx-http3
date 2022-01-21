@@ -72,3 +72,4 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: nginx-quic.tar.bz2
+        tag_name: b
