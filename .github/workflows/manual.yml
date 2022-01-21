@@ -28,8 +28,8 @@ jobs:
     # Runs a single command using the runners shell
     - name: Build ssl
       run: |
-        apt-get update && \
-        sudo apt-get install -y git gcc make g++ cmake perl libunwind-dev golang && \
+        sudo apt-get update
+        sudo apt-get install -y git gcc make g++ cmake perl libunwind-dev golang
         git clone https://boringssl.googlesource.com/boringssl && \
         mkdir boringssl/build && \
         cd boringssl/build && \
