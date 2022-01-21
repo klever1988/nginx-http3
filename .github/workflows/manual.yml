@@ -38,8 +38,9 @@ jobs:
         
     - name: Build nginx
       run: |
-        sudo apt-get install -y mercurial libperl-dev libpcre3-dev zlib1g-dev libxslt1-dev libgd-ocaml-dev libgeoip-dev && \
-        hg clone https://hg.nginx.org/nginx-quic   && \
+        sudo apt-get install -y mercurial libperl-dev libpcre3-dev zlib1g-dev libxslt1-dev libgd-ocaml-dev libgeoip-dev \
+        libpcre3-dev libjemalloc-dev libmaxminddb-dev
+        hg clone https://hg.nginx.org/nginx-quic
         cd nginx-quic && \
         hg update quic && \
         git clone https://github.com/leev/ngx_http_geoip2_module.git
